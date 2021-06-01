@@ -13,6 +13,10 @@ while True:
         msg = cl.recv(1024)
         value=msg.decode()
         if value:
-            print('我的IP地址',value.split('EOF')[0],'我发送值',value.split('EOF')[1])
-        #break
+            print('{}'.format(value))
+        def fasun():
+         while True:
+            a=input()
+            cl.send("{}: {}".format(addr[0],a).encode())
+        threading.Thread(target=fasun).start()
     threading.Thread(target=start).start()
